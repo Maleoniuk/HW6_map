@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style type="text/css">
+    .container{                             
+        display: flex;
+        justify-content:center;
+    }
+    img{
+        width:1000px;
+        z-index: 1;
+    }
+    header{
+        width:1000px;
+        height: 70px;
+        background-color: grey;
+     
+      position:absolute;
+     
+      z-index: 2;
+    }
+   header> ul {
+    display: flex;
+
+    padding: 0;
+    margin: 0;
+}
+header> ul>li{
+    position: relative;
+    margin-left: 10px;
+    padding: 0;
+   
+    border-radius: 5px;
+    display:inline-flex;
+    width:100px;
+    height:65px;
+    justify-content:center;
+    align-items: center;
+    background-color: rgb(37, 153, 147);
+    transition: background-color 2s,color 2s;        /* При :hover эффекте цвет <li> и текста должны меняться на протяжении 2 секунд*/
+    
+}
+.submenu{
+    display:none;
+    position:absolute;
+    left: 0px;
+ top: 60px;}
+
+ .submenu>li{
+    border:1px solid yellow;
+    display: inline-flex ;
+    width:100px;
+    height:60px;
+    justify-content:center;
+    align-items: center;
+    border-radius: 5px;  
+    font-size: 20px;  
+    color:wheat;   
+          
+   
+    
+
+
+}
+header>ul>li:hover{
+    background-color:pink ;
+    color:rgb(82, 79, 77)
+}
+
+header>ul>li:hover>ul{
+    display: inline-block ;
+
+padding: 0;  
+   
+}
+
+
+
+header>ul>li> ul>li:hover{
+    background-color: rgb(238, 158, 11);
+    animation: shine 5s infinite;           /* Имя для анимации shine*/
+    
+   
+   
+   
+  
+}
+
+    @keyframes shine {
+
+50% {
+    transform:rotateY(360deg);
+  transition-delay: 3s;
+            background-color: rgb(184, 15, 158);
+         
+          
+
+}
+50% {
+ 
+            background-color: rgb(126, 122, 125);
+        
+
+}
+
+}
+</style>
+<body>
+    <div class="container">                                                        <!-- Контейнер flex -->
+        <header>                                                                   <!-- Создаем Header со стилями и ставим z-index2 чтоб наложить на <img>-->
+            <ul >                                                                 
+            <li>Egipt                                                               <!-- Делаем список-->
+                <ul class="submenu">
+                <li>Sharm-El-Sheikh</li>                                            <!-- В теге <li> вставляем список с городами <ul> и делаем этот <ul> невидимым до :hover -->
+                <li>Hurgada</li></ul>  
+                </li>
+                            
+             <li>Turkey                                                               <!-- Тоже самое делаем с в <li>Турция;Испания;Италия;Польша-->
+                                                                                      <!-- В классе submenu указываем display:none и отталкиваясь от него прописываем стили для списков-->
+            <ul class="submenu">
+                <li>Istambul</li>
+                <li>Alanya</li>
+                <li>Antalya</li>
+            </ul></li>
+            <li>Spain
+            <ul class="submenu">
+                <li>Madrid</li>
+                <li>Barcelona</li>
+                <li>Valencia</li>
+            </ul></li>
+            <li>Italy
+            <ul class="submenu">
+                <li>Rome</li>
+                <li>Florence</li>
+                <li>Milam</li>
+            </ul></li>
+            <li>Poland
+            <ul class="submenu">
+                <li>Warsaw</li>
+                <li>Krakow</li>
+                <li>Gdansk</li>
+            </ul></li>
+           
+            </ul></header>
+        <img src="sea.jpg">
+    </div>
+</body>
+</html>
